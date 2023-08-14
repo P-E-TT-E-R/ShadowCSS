@@ -18,6 +18,7 @@ You can try it here: 👉 https://shadowcss.com 👈
 
 ## ⏱️ Performance
 Lighthouse Scores (editor.html)
+
 ![image](https://github.com/P-E-TT-E-R/ShadowCSS/assets/37306965/6069a3e6-c7b8-41a8-baec-b325d2e2689e)
 ![image](https://github.com/P-E-TT-E-R/ShadowCSS/assets/37306965/fe2a4147-5280-427e-b507-74b28c8edc58)
 
