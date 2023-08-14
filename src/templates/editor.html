@@ -1,0 +1,162 @@
+{% extends "include/base.html" %}
+
+{% block title %}Editor - SHADOWCSS{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Enhance Your Web Design with Our Intuitive CSS Box-Shadow Editor | Create Stunning Visual Effects Easily | No Coding Required | Boost User Engagement | Try Now!">
+<meta name="keywords" content="CSS Box-Shadow, Web Design, Visual Effects, Presets, Web Projects, CSS Techniques, Web Development, Design Tips, Creative Enhancements, User Engagement, CSS Styling, Eye-catching Effects, Web Design Skills, Ready-to-Use, Expert Tips, Web Aesthetics, User Experience (UX), Web Graphics, Web Elements, HTML/CSS Styling, Shadow, Editor, Maker, CSS Shadow, box-shadow, shadow editor, shadow maker, css shadow maker, css shadow editor, HTML, CSS, JavaScript">
+{% endblock %}
+
+{% block content %}
+    <!-- MOBILE BANNER -->
+    <div class="mobile">
+      <h1>Dear user, please switch to Desktop or a device with bigger screen to use our CSS Shadow Editor. We are sorry for the inconvienience.</h1><h1>-ShadowCSS Developer</h1>
+      <div class="flex-row flx-around">
+        <a class="btn" href="guides.html" aria-label="Open guide section.">📔 GUIDES</a>
+        <a class="btn" href="presets.html" aria-label="Open section with presets.">📃 PRESETS</a>
+      </div>
+    </div>
+    <!-- CONTENT WRAPPER -->
+    <div class="wrapper editor">
+      <!-- CONTROLS -->
+      <div class="col">
+        <div class="section row jc-btw">
+          <span>SHADOWS:</span>
+          <a class="btn" onclick="shadow.add_shadow()" aria-label="Add new shadow.">
+            <span class="material-symbols-rounded">add_box</span>
+            <span>New</span>
+          </a>
+        </div>
+
+        <!-- Rendered controls form -->
+        <div class="cards">
+          <div class="cards-wrapper" id="form">
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- SHADOW DISPLAY-->
+      <div class="col" id="display">
+        <div class="section row jc-btw">
+          <span>Settings:</span>
+          <div class="flex-row flx-center btn" onclick="toggleBox(this,'box')"  aria-label="Toggle preview box.">
+            <span class="material-symbols-rounded">check_box</span>
+            <span>Box</span>
+          </div>
+          <div class="flex-row flx-center btn" onclick="toggleCircle(this,'circle')" aria-label="Toggle preview circle.">
+            <span class="material-symbols-rounded">check_circle</span>
+            <span>Circle</span>
+          </div>
+
+          <div class="flex-row flx-center">
+            <span class="material-symbols-rounded">wallpaper</span>
+            <div class="clr-field color-picker-full" style="color: #00000000;">
+                <button type="button" aria-labelledby="clr-open-label"></button>
+                <input class="coloris text-input" type="text" name="color" value="#00000000" data-coloris="" oninput="changeBcg(this, 'display')"  aria-label="Change background color.">
+            </div>
+          </div>
+        </div>
+
+        <div class="display" id="display">
+          <div id="box" class="square shadow"></div>
+          <div id="circle" class="circle shadow"></div>
+        </div>
+
+      </div>
+
+      <!-- OUTPUT -->
+      <div class="col">
+        <div class="section">
+          TIPS:
+          <ul>
+            <li>Use darker background when creating 3D shadows</li>
+            <li>Make sure shadows are not too distracting</li>
+            <li>Keep shadows simple and uniform</li>
+            <li>Make sure to check how the shadow looks on the end product</li>
+            <li><a href="presets.html"  aria-label="Go to presets section.">Try Presets</a></li>
+          </ul>
+        </div>
+        <div class="section">
+          <span>CSS:</span>
+
+          <!-- Code output -->
+          <code class="code" id="shadow_css"></code>
+
+          <div class="flex-row">
+            <div class="flex-row btn" onclick="copy('shadow_css')" aria-label="Copy CSS.">
+              <span class="material-symbols-rounded">content_copy</span>
+              <span>Copy</span>
+            </div>
+            <div class="flex-row btn" onclick="share()" aria-label="Share link to editor with your shadow preloaded.">
+              <span class="material-symbols-rounded">share</span>
+              <span>Share</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      // Coloris declaration
+      Coloris({
+        theme: "polaroid",
+        themeMode: "dark",
+        formatToggle: true,
+        alfa: true,
+      });
+
+      // Loads data from url
+      let params = new URLSearchParams(location.search);
+      let shadows = JSON.parse(params.get("data"));
+      if (window.history.replaceState) {
+        //prevents browser from storing history with each change:
+        window.history.replaceState({}, null, window.location.href.split("?")[0]);
+      }
+
+      // Declares shadow object
+      var shadow = new Shadow(
+        document.getElementById("form"),
+        document.getElementById("shadow_css"),
+        document.getElementsByClassName("shadow"),
+        {"shadows":shadows}
+      );
+
+      // Function to toggle box preview
+      function toggleBox(btn, box_id) {
+        var box = document.getElementById(box_id);
+        if (btn.firstElementChild.innerHTML == "check_box") {
+          btn.firstElementChild.innerHTML = "check_box_outline_blank";
+          box.style.display="none";
+        } else {
+          btn.firstElementChild.innerHTML = "check_box";
+          box.style.display="block";
+        }
+      }
+
+      // Function to toggle circle preview
+      function toggleCircle(btn, circle_id) {
+        var circle = document.getElementById(circle_id);
+        if (btn.firstElementChild.innerHTML == "check_circle") {
+          btn.firstElementChild.innerHTML = "circle";
+          circle.style.display="none";
+        } else {
+          btn.firstElementChild.innerHTML = "check_circle";
+          circle.style.display="block";
+        }
+      }
+
+      // Function to change background
+      function changeBcg(input, bcg_id) {
+        var bcg = document.getElementById(bcg_id);
+        bcg.style.background = `${input.value}`;
+      }
+
+      // Function to copy css
+      function copy(element_id) {
+        var element = document.getElementById(element_id);
+        navigator.clipboard.writeText(element.innerHTML);
+      }
+    </script>
+    
+{% endblock content %}

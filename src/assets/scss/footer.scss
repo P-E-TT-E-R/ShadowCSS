@@ -1,0 +1,22 @@
+.footer {
+    width: 100%;
+    min-height: 5vh;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bcg-color);
+    border-top: 1px solid var(--brd-color);
+    span {
+        padding: 0.5em;
+    }
+    a {
+        color: var(--txt-color);
+        font-family: 'Comfortaa', cursive;
+    }
+    svg {
+        padding-right: 0.5em;
+
+    }
+}

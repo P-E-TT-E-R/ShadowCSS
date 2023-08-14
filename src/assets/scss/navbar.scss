@@ -1,0 +1,33 @@
+.navbar {
+    width: 100%;
+    height: 5vh;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--bcg-color);
+    border-bottom: 1px solid var(--brd-color);
+}
+.navbar > div {
+    width: 50%;
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.navbar .left {
+    width: 100%; /*BYPASS, Becouse there is currently no need for right side*/
+}
+.navbar .right {
+    width: 0%; /*BYPASS, Becouse there is currently no need for right side*/
+    justify-content: flex-end;
+}
+.navbar a {
+    padding: 1em;
+    color: var(--txt-color);
+    text-decoration: none;
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+}
+.navbar .active {
+    background-image: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+}

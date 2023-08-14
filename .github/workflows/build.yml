@@ -1,0 +1,67 @@
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_css:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source Git branch
+        uses: actions/checkout@v2
+        with:
+            ref: main
+            fetch-depth: 10
+            submodules: true
+            
+      - name: Make sure css directory exists
+        run: mkdir -vp src/assets/css
+        
+      - name: Compile CSS from SCSS files
+        uses: gha-utilities/sass-build@v0.5.1
+        with:
+          source: src/assets/scss/master.scss
+          destination: src/assets/css/main.css
+          
+      - name: Make sure dist file structure exists
+        run: mkdir -vp dist/assets/{css,js,scss}
+        
+      - name: Auto Minify JS
+        # You may pin to the exact commit or the version.
+        # uses: nizarmah/auto-minify@7028a7a4b79ccdc7e00f351baed61c59d07690ee
+        uses: nizarmah/auto-minify@v2.1.1
+        with:
+          # Directory that contains the files you want to minify. Defaults to current directory (.)
+          directory: 'src/assets/js'
+          # Directory that contains the minified files. Defaults to same directory
+          output: 'dist/assets/'
+
+      - name: Auto Minify CSS
+        # You may pin to the exact commit or the version.
+        # uses: nizarmah/auto-minify@7028a7a4b79ccdc7e00f351baed61c59d07690ee
+        uses: nizarmah/auto-minify@v2.1.1
+        with:
+          # Directory that contains the files you want to minify. Defaults to current directory (.)
+          directory: 'src/assets/css'
+          # Directory that contains the minified files. Defaults to same directory
+          output: 'dist/assets/'
+          
+      - name: Copy html files to dist
+        run: cp src/*.html dist/
+        
+      - name: Add and Commit changes to main branch
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git add src/*
+          git add dist/*
+          git commit -m 'Compiled CSS'
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+

@@ -1,0 +1,29 @@
+.article {
+    width: 100%;
+}
+.article p{
+    overflow-wrap: break-word;
+    text-align: justify;
+}
+.article .display {
+    width: 15%;
+    display: inline-block;
+    margin-right: 2em;
+}
+.article .code {
+    width: 100%;
+    margin-top: 2em;
+    display: block;
+    vertical-align: top;
+    white-space: pre-wrap;
+}
+@media screen and (max-width: 1200px) {
+    .article .display {
+      width: 30%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .article .display {
+      width: 100%;
+    }
+}

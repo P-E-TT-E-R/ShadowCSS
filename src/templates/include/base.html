@@ -1,0 +1,42 @@
+<!--
+######################################################
+# Made by P_E_TT_E_R (https://github.com/P-E-TT-E-R) #
+#                   Copyright 2023                   #
+######################################################
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- PRECONNECT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/">
+
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.jpg">
+    {% block meta %}{% endblock meta %}
+    <!-- TITLE -->
+    <title>{% block title %}{% endblock title %}</title>
+    <!-- COLORIS -->
+    <link href="./assets/coloris.min.css" rel="stylesheet"/>
+    <script src="./assets/coloris.min.js"></script>
+    <!-- JQUERY -->
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- JS -->
+    <script src="./assets/js/shadow.js"></script>
+    <script src="./assets/shadow.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/scss/master.scss" />
+    <link rel="stylesheet" href="./assets/main.min.css" />
+</head>
+<body>
+    {% include 'include/navbar.html' %}
+
+    {% block content %}
+	{% endblock content %}
+    
+    {% include 'include/footer.html' %}
+</body>
+</html>

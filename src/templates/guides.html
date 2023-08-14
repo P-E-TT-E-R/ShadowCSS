@@ -1,0 +1,156 @@
+{% extends "include/base.html" %}
+
+{% block title %}Guide - SHADOWCSS{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Unlock the Secrets of CSS Box Shadow with Our Comprehensive Guide | Expert Tips for Eye-catching Visual Effects | Elevate Your Web Design Skills Today | Get Started Now!">
+<meta name="keywords" content="CSS Box-Shadow, Web Design, Visual Effects, Presets, Web Projects, CSS Techniques, Web Development, Design Tips, Creative Enhancements, User Engagement, CSS Styling, Eye-catching Effects, Web Design Skills, Ready-to-Use, Expert Tips, Web Aesthetics, User Experience (UX), Web Graphics, Web Elements, HTML/CSS Styling, Shadow, Editor, Maker, CSS Shadow, box-shadow, shadow editor, shadow maker, css shadow maker, css shadow editor, HTML, CSS, JavaScript">
+{% endblock %}
+
+{% block content %}
+    <!-- CONTENT WRAPPER -->
+    <div class="wrapper wr-60">
+      <div class="article">
+
+    <!-- Introduction -->
+        <h2>Introduction</h2>
+        <p>CSS box shadows offer web designers a versatile tool to create depth, visual interest, and an element of realism in their designs. By cleverly employing shadows, developers can create a delightful and immersive user experience that elevates the overall design aesthetic. In this discussion, we'll explore further aspects of using box shadows to their full potential.</p>
+
+    <!-- 1. POINT -->
+        <h2>1. Casting Realistic Shadows</h2>
+        <p>When designing interfaces that mimic the physical world, realistic shadows can add authenticity. To achieve this effect, consider aligning the shadow direction with a consistent light source across the entire design. By doing so, elements appear grounded, contributing to the illusion of three-dimensionality.</p>
+        <!-- Preview -->
+        <div class="display">
+            <div class="square shadow" style="box-shadow: -10px -10px 15px 0px rgba(255,255,255,0.5) ,10px 10px 15px 0px rgba(70,70,70,0.12) ;"></div>
+            <div class="circle shadow" style="box-shadow: -10px -10px 15px 0px rgba(255,255,255,0.5) ,10px 10px 15px 0px rgba(70,70,70,0.12) ;"></div>
+        </div>
+        <!-- Code -->
+<code class="code">.element {
+    box-shadow: -10px -10px 15px 0px rgba(255,255,255,0.5) ,10px 10px 15px 0px rgba(70,70,70,0.12);
+}</code>
+
+    <!-- 2. POINT -->
+        <h2>2. Layered Shadows for Depth</h2>
+        <p>Think beyond the single-box shadow. To create a more compelling effect, try layering multiple box shadows of varying sizes, blur, and colors. By stacking these shadows, you can generate intricate and engaging visual elements, such as floating panels, layered cards, and hovering effects.</p>
+        <!-- Preview -->
+        <div class="display">
+            <div class="square shadow" style="box-shadow:
+            8.1px 8.1px 0px rgba(0, 0, 0, 0.052),
+            19.7px 19.7px 0px rgba(0, 0, 0, 0.076),
+            32px 32px 0px rgba(0, 0, 0, 0.1); background-color: white;"></div>
+            <div class="circle shadow" style="box-shadow:
+            8.1px 8.1px 0px rgba(0, 0, 0, 0.052),
+            19.7px 19.7px 0px rgba(0, 0, 0, 0.076),
+            32px 32px 0px rgba(0, 0, 0, 0.1); background-color: white;"></div>
+        </div>
+        <div class="display">
+            <div class="square shadow" style="box-shadow:
+            8.1px 8.1px 3.3px rgba(0, 0, 0, 0.052),
+            19.7px 19.7px 11.2px rgba(0, 0, 0, 0.076),
+            32px 32px 50px rgba(0, 0, 0, 0.1); background-color: white;"></div>
+            <div class="circle shadow" style="box-shadow:
+            8.1px 8.1px 3.3px rgba(0, 0, 0, 0.052),
+            19.7px 19.7px 11.2px rgba(0, 0, 0, 0.076),
+            32px 32px 50px rgba(0, 0, 0, 0.1); background-color: white;"></div>
+        </div>
+        <!-- Code -->
+<code class="code">.first {
+    box-shadow:8.1px 8.1px 0px rgba(0, 0, 0, 0.052), 19.7px 19.7px 0px rgba(0, 0, 0, 0.076), 32px 32px 0px rgba(0, 0, 0, 0.1); background-color: white;
+}
+.second {
+    box-shadow:8.1px 8.1px 0px rgba(0, 0, 0, 0.052), 19.7px 19.7px 0px rgba(0, 0, 0, 0.076), 32px 32px 0px rgba(0, 0, 0, 0.1); background-color: white;
+}</code>
+        <p>Second element has added blur.</p>
+
+    <!-- 3. POINT -->
+        <h2>3. Subtle vs. Dramatic Shadows</h2>
+        <p>The intensity of a shadow can dramatically alter the overall impact of a design. While subtle shadows may suit minimalistic or elegant designs, bolder and more dramatic shadows can be attention-grabbing and convey a sense of importance. Finding the right balance between subtlety and drama is essential to complement the overall design intent.</p>
+        <!-- Preview -->
+        <div class="display">
+            <div  class="square shadow" style="box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.17) ;"></div>
+            <div class="circle shadow" style="box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.17) ;"></div>
+        </div>
+        <div class="display">
+            <div class="square shadow" style="box-shadow: 0px 0px 50px 0px rgb(230, 0, 255) ;"></div>
+            <div class="circle shadow" style="box-shadow: 0px 0px 50px 0px rgb(230, 0, 255) ;"></div>
+        </div>
+
+        <!-- Code -->
+<code class="code">.first {
+    box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.17);
+}
+.second {
+    box-shadow: 0px 0px 50px 0px rgb(230, 0, 255);
+}</code>
+
+    <!-- 4. POINT -->
+        <h2>4. Floating Elements with Shadows</h2>
+        <p>To create the illusion of floating elements on the page, leverage box shadows. Whether it's a floating action button, a notification card, or a modal dialog, shadows can make these elements stand out and draw attention.</p>
+        <!-- Preview -->
+        <div class="display">
+            <div class="square shadow" style="box-shadow: 15px 15px 10px 5px #00000038 ; background-color: white;"></div>
+            <div class="circle shadow" style="box-shadow: 15px 15px 10px 5px #00000038 ; background-color: white;"></div>
+        </div>
+        <!-- Code -->
+<code class="code">.element {
+    box-shadow: 15px 15px 10px 5px #00000038 ; background-color: white;
+}</code>
+
+    <!-- 5. POINT -->
+        <h2>5. Animated Shadows</h2>
+        <p>Combine box shadows with CSS animations or transitions to introduce dynamic effects. For example, when hovering over an element, animate the shadow's properties to create smooth transitions, indicating interactivity and responsiveness.</p>
+        <!-- Preview -->
+        <style>
+            .animated_shadow {
+                box-shadow: 10px 10px 10px 1px #00000038;
+                background-color: white;
+                transition: ease-in-out 0.2s box-shadow;
+                text-align: center;
+            }
+            .animated_shadow:hover {
+                box-shadow: 20px 20px 10px 1px #00000038;
+                cursor: pointer;
+            }
+        </style>
+        <div class="display">
+            <div class="square shadow animated_shadow">Hover over me</div>
+        </div>
+        <!-- Code -->
+<code class="code">.animated_shadow {
+    box-shadow: 10px 10px 10px 1px #00000038;
+    background-color: white;
+    transition: ease-in-out 0.2s box-shadow;
+    text-align: center;
+}
+.animated_shadow:hover {
+    box-shadow: 20px 20px 10px 1px #00000038;
+    cursor: pointer;
+}</code>
+
+    <!-- 6. POINT -->
+        <h2>6. Shadows in Dark Mode Designs</h2>
+        <p>When designing for dark mode or low-light environments, adjusting the shadow colors becomes crucial. Instead of relying on standard black shadows, consider using dark or desaturated hues to match the overall dark theme and maintain a consistent design language.</p>    
+
+    <!-- TIPS -->
+        <h2>TIPS</h2>
+        <p>1. Start with simple shadows: Begin by adding basic box shadows to elements before getting too complex. This will prevent overwhelming your design and ensure a clean, elegant look.</p>
+        <p>2. Use sparingly: While box shadows can enhance your design, too many shadows can make it look cluttered and distract users. Be selective and use shadows only where needed.</p>
+        <p>3. Embrace subtlety: Often, a subtle shadow works better than an intense one. Consider using lower opacity and spreading out the shadow slightly to achieve a delicate effect.</p>
+        <p>4. Balance with color: Pay attention to the color scheme of your design. Darker shadows tend to work better on lighter backgrounds, while lighter shadows may be more appropriate for darker backgrounds.</p>
+        <p>5. Pay attention to element sizes: Adjust the size of the shadow according to the size of the element. Smaller elements generally require smaller shadows, while larger elements can handle more prominent shadows.</p>
+        <p>6. Use inset shadows: By default, box shadows are placed outside the element's borders. However, you can also create an "inset" shadow to give elements a pressed or embedded appearance. This can be handy for buttons and input fields.</p>
+        <p>7. Experiment with blur and spread: The blur-radius property controls the blurriness of the shadow, while the spread-radius property determines the size of the shadow. Experiment with different values to achieve the desired effect.</p>
+        <p>8. Combine multiple shadows: You can apply multiple box shadows to a single element, separated by commas. This allows you to create complex and unique effects.</p>
+        <p>9. Consider the context: Think about the overall design and how the box shadow complements other visual elements on the page. The shadow should enhance the user experience rather than detract from it.</p>
+        <p>10. Test on different devices: Box shadows may appear differently on various devices and browsers. Make sure to test your design on multiple devices to ensure a consistent and appealing look.</p>
+        <p>11. Be mindful of performance: Box shadows, especially complex ones, can impact page performance. Too many box shadows or very large shadows might slow down page rendering. Optimize your shadows for performance when needed.</p>
+        <p>12. Use CSS variables: If you plan to use the same box shadow in multiple places, consider defining it as a CSS variable. This way, you can easily update the shadow throughout your stylesheets by changing the variable's value.</p>
+
+    <!-- CONCLUSION -->
+        <h2>Conclusion</h2>
+        <p>CSS box shadows are a powerful and versatile tool that allows web designers to add depth, realism, and interactivity to their designs. By thoughtfully applying shadows and exploring creative possibilities, developers can create visually engaging and immersive user experiences. Understanding the nuances of shadow properties, lighting, and context will enable designers to take full advantage of this essential CSS feature.</p>
+
+      </div>
+    </div>
+   
+{% endblock content %}

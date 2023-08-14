@@ -1,0 +1,124 @@
+{% extends "include/base.html" %}
+
+{% block title %}Presets - SHADOWCSS{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Explore a World of Creativity with Our CSS Box-Shadow Presets | Instantly Enhance Your Design with Ready-to-Use Visual Effects | Effortlessly Elevate Your Web Projects | Discover a Range of Stunning Presets Now!">
+<meta name="keywords" content="CSS Box-Shadow, Web Design, Visual Effects, Presets, Web Projects, CSS Techniques, Web Development, Design Tips, Creative Enhancements, User Engagement, CSS Styling, Eye-catching Effects, Web Design Skills, Ready-to-Use, Expert Tips, Web Aesthetics, User Experience (UX), Web Graphics, Web Elements, HTML/CSS Styling, Shadow, Editor, Maker, CSS Shadow, box-shadow, shadow editor, shadow maker, css shadow maker, css shadow editor, HTML, CSS, JavaScript">
+{% endblock %}
+
+{% block content %}
+    <!-- CONTENT WRAPPER -->
+    <div class="wrapper wr-80">
+      <div class="grid" id="grid">
+      </div>
+    </div>
+
+    <!-- SCRIPT TO RENDER THE FORM -->
+    <script type="text/javascript">
+      // I've done it this way to make it easier to connect it to a database in the future.
+      // Defined shadows in JSON format
+      const shadows = [
+        [
+          {"x":-10,"y":-10,"blur":15,"spread":0,"color":"rgba(255,255,255,0.5)","inset":false},
+          {"x":10,"y":10,"blur":15,"spread":0,"color":"rgba(70,70,70,0.12)","inset":false},
+        ],
+        [
+          {"x":-10,"y":-10,"blur":15,"spread":0,"color":"rgba(255,255,255,0.5)","inset":true},
+          {"x":10,"y":10,"blur":15,"spread":0,"color":"rgba(70,70,70,0.12)","inset":true},
+        ],
+        [
+          {"x":3,"y":3,"blur":6,"spread":0,"color":"rgba(220,220,220,1)","inset":true},
+          {"x":-3,"y":-3,"blur":6,"spread":1,"color":"rgba(255,255,255,0.5)","inset":true},
+        ],
+        [
+          {"x":3,"y":3,"blur":6,"spread":0,"color":"rgba(220,220,220,1)","inset":false},
+          {"x":-3,"y":-3,"blur":6,"spread":1,"color":"rgba(255,255,255,0.5)","inset":false},
+        ],
+        [
+          {"x":0,"y":8,"blur":24,"spread":0,"color":"rgba(150,160,165,0.2)","inset":false},
+        ],
+        [
+          {"x":0,"y":-50,"blur":36,"spread":-28,"color":"rgba(0,0,0,0.35)","inset":true},
+        ],
+        [
+          {"x":0,"y":4,"blur":8,"spread":-2,"color":"rgba(9,30,66,0.25)","inset":false},
+          {"x":0,"y":0,"blur":0,"spread":1,"color":"rgba(9,30,66,0.08)","inset":false},
+        ],
+        [
+          {"x":0,"y":0,"blur":0,"spread":1,"color":"rgba(0,0,0,0.05)","inset":false},
+          {"x":0,"y":0,"blur":0,"spread":1,"color":"rgba(209,213,219,1)","inset":true},
+        ],
+        [
+          {"x":0,"y":2,"blur":4,"spread":0,"color":"rgba(0,0,0,0.4)","inset":false},
+          {"x":0,"y":7,"blur":13,"spread":-3,"color":"rgba(0,0,0,0.03)","inset":false},
+          {"x":0,"y":-3,"blur":0,"spread":0,"color":"rgba(0,0,0,0.2)","inset":true},
+        ],
+        [
+          {"x":0,"y":0,"blur":0,"spread":3,"color":"rgb(85, 91, 255)","inset":false},
+          {"x":0,"y":0,"blur":0,"spread":6,"color":"rgb(31, 193, 27)","inset":false},
+          {"x":0,"y":0,"blur":0,"spread":9,"color":"rgb(255, 217, 19)","inset":false},
+          {"x":0,"y":0,"blur":0,"spread":12,"color":"rgb(255, 156, 85)","inset":false},
+          {"x":0,"y":0,"blur":0,"spread":15,"color":"rgb(255, 85, 85)","inset":false},
+        ],
+      ]
+
+      // Generates CSS code
+      function generate_css(shadows) {
+        var shadow = "box-shadow: ";
+        shadow += shadows.reduce(function (shadow, item, index) {
+            shadow += `${item["x"]}px ${item["y"]}px ${item["blur"]}px ${item["spread"]}px ${item["color"]} ${(item["inset"] == true) ? 'inset':''},`
+            return shadow;
+        },"");
+        
+        shadow = shadow.slice(0,-1)
+        shadow += ";"
+        return shadow;
+      }
+
+      // Generates url with embeded box shadows 
+      function generate_uri(url,shadows) {
+        var json_string = JSON.stringify(shadows)
+        url += "?data=" + encodeURI(json_string)
+        return url;
+      }
+
+      // Renders elements
+      function render_grid(url, shadows, grid) {
+        var html = "";
+        for (const element of shadows) {
+          var css = generate_css(element);
+          var uri = generate_uri(url, element);
+          html += `
+          <div class="item">
+            <div class="display">
+              <div id="box" class="square shadow" style="${css}"></div>
+              <div id="circle" class="circle shadow" style="${css}"></div>
+            </div>
+            <div class="flex-row flx-center">
+              <div class="flex-row btn" onclick="copy('${css}')" aria-label="Copy CSS.">
+                <span class="material-symbols-rounded">content_copy</span>
+                <span>Copy</span>
+              </div>
+              <a href="${uri}" class="flex-row flx-center btn" aria-label="Edit shadow in editor">
+                <span class="material-symbols-rounded">draw</span>
+                <span>Edit</span>
+              </a>
+            </div>
+          </div>`;
+        }
+
+        grid.innerHTML = html;
+        
+      }
+
+      // Copies CSS to clipboard
+      function copy(css) {
+        navigator.clipboard.writeText(css);
+      }
+
+      // calls the function
+      render_grid("./editor.html",shadows,document.getElementById("grid"));
+    </script>
+    
+{% endblock content %}
