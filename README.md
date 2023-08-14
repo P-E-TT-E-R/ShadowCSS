@@ -17,7 +17,7 @@ You can try it here: 👉 https://shadowcss.com 👈
 *This was supposed to be a one day project. Very soon I realized that my first time estimates were completely unrealistic. I worked on this project in my free time and it took me around 3-4 months. Many times I had to start over. In the end, I settled with the fifth version of the software, which was good enough to be dragged across the finish line.*
 
 ## ⏱️ Performance
-Lighthouse Scores (editor.html)
+Lighthouse Scores (editor.html) (your score might vary depending on your chosen method of deployment)
 
 ![image](https://github.com/P-E-TT-E-R/ShadowCSS/assets/37306965/6069a3e6-c7b8-41a8-baec-b325d2e2689e)
 ![image](https://github.com/P-E-TT-E-R/ShadowCSS/assets/37306965/fe2a4147-5280-427e-b507-74b28c8edc58)
